@@ -1,0 +1,3 @@
+lpepa                    Local polynomial regression fitting with
+                         Epanechnikov weights
+lpridge                  Local polynomial regression fitting with ridging
