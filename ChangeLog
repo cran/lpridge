@@ -1,6 +1,22 @@
+2003-11-05  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-2 for CRAN
+
+	* R/lpepa.R (lpepa): default 'order = deriv+1' & 'n.out = 200' :
+	  finally the code works as the docs say it does!
+	* lpepa.Rd:  <ditto>
+
+2002-05-02  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Description): no local bw!
+
+2002-03-08  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* lpridge.Rd: example: legend...
+
 2001-12-14  Martin Maechler  <maechler@stat.math.ethz.ch>
 
-	* DESCRIPTION (Version): release (for R 1.4.0)
+	* DESCRIPTION (Version): release 1.0-1 (for R 1.4.0)
 
 2001-08-18  Martin Maechler  <maechler@stat.math.ethz.ch>
 
