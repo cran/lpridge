@@ -1,0 +1,8 @@
+2001-12-14  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): release (for R 1.4.0)
+
+2001-08-18  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/lpepa.Rd: fix missing brace
+

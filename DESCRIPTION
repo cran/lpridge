@@ -1,5 +1,5 @@
 Package: lpridge
-Version: 1.0-0
+Version: 1.0-1
 Title: Local Polynomial (Ridge) Regression
 Author: Burkhardt Seifert <seifert@ifspm.unizh.ch> (S original);
 	Packaged for R by Martin Maechler
