@@ -1,3 +1,11 @@
+2005-05-02  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/lpepa.Rd: encoding{latin1}
+
+2005-04-19  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/{lpridge.R,lpepa.R}: list(<key=<val>,...) instead of return(...)
+
 2003-11-05  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version): 1.0-2 for CRAN
