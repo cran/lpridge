@@ -1,6 +1,6 @@
 43a88527fc2b0fcabd4d2cff79c2a563 *COPYRIGHTS
-064c618c86cfc8a21a8065ff0aaf3bb8 *ChangeLog
-94568f5a7752eb0141e734d8c07e7772 *DESCRIPTION
+db5a9789ca4d166b1d4fe845ad46fedd *ChangeLog
+e1d672bac7786fb4c63e90e117b2fe1d *DESCRIPTION
 a90bfe867ab9b4fbed0de6edf8cd8ede *NAMESPACE
 e7f4a36dde24899724347f30e27b23de *R/lpepa.R
 b9f632a554e4c1139446bb8d06019fa7 *R/lpridge.R
@@ -11,6 +11,6 @@ ec652e2c745dad32a7d1b3a21c0d18e8 *README.lpridge
 49fcfabc517258c93080b4239ef7c2fe *man/lpepa.Rd
 0443af0eb7714561c70e5dd7055addf2 *man/lpridge.Rd
 c7c1bed9a64e16c6b4d438b50c45f5d2 *src/lpaux.f
-3293fb068d41ca7bf88b92bf16b1d0b5 *src/lpepa.f
-fdd1f6fffa1a73bbfd523c932e85c1d7 *src/lpridge.f
+70bb14ae1f572761811e537d8c85aabc *src/lpepa.f
+44fd39529411e22d723988435a1ca2b2 *src/lpridge.f
 78271856ce7757dd7b574d16ff18dcaf *tests/cars-ex.R
