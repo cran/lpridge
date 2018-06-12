@@ -111,16 +111,21 @@ c - maximum order of moments
       na=p+1
 c - nuefak = faktorial of nue
       nuefak=1d0
-      do 20 i=1,nue
-20       nuefak=nuefak*i
-c - binomial coefficients
-      do kk=0,powmax
+      do i=1,nue
+         nuefak=nuefak*i
+      end do
+c - binomial coefficients (kk= 0,1, manually; then for(kk in 2:pm) ==> kk-1 >= 1)
+      bin(0,0)=1
+      bin(1,0)=1
+      bin(1,1)=1
+      do kk=2,powmax
          bin(kk,0)=1
          do k=1,kk-1
             bin(kk,k)=bin(kk-1,k-1)+bin(kk-1,k)
          enddo
          bin(kk,kk)=1
       enddo
+
 c**********************************************************************
 c Smoothing loop over outputgrid
 c
@@ -287,9 +292,11 @@ c     - calculate Tn,l
      +              (tti*tti*w(l,2) - 2d0*tti*w(l+1,2) + w(l+2,2))
             enddo
 c     - construct matrix
-            do 360 j=0,p
-               do 360 l=1,j+1
- 360              w1(j*na+l)=w(l+j-1,4)
+            do j=0,p
+               do l=1,j+1
+                  w1(j*na+l)=w(l+j-1,4)
+               end do
+            end do
             irec=1
             goto 500
          endif
@@ -297,12 +304,15 @@ c  -- else -- (but we jump here from outside, hence "need" goto 500 above)
 c     ----> unweighted LSE
 
 c     - store t_n,l
- 400     do 420 l=0,p
- 420        w(l,5)=w(l,2)
+ 400     do l=0,p
+            w(l,5)=w(l,2)
+         end do
 c     - construct matrix
-         do 430 j=0,p
-            do 430 l=1,j+1
- 430           w1(j*na+l)=w(l+j-1,1)
+         do j=0,p
+            do l=1,j+1
+               w1(j*na+l)=w(l+j-1,1)
+            end do
+         end do
          iup=mnew
          irec=2
 c  -- endif
@@ -359,25 +369,29 @@ c
 c - compute variance
 c
          if (nvar.le.0) goto 990
-         do 710 j=0,nue
-710         w(j,3)=0d0
+         do j=0,nue
+            w(j,3)=0d0
+         end do
          ttti=1d0
-         do 740 j=nue,p
+         do j=nue,p
             w(j,3)=bin(j,nue)*ttti*nuefak
-740         ttti=ttti*tti
+            ttti=ttti*tti
+         end do
          call lpsv(w1,work,w(0,3),na, zer,na)
          if (irec.ne.2) then
 c     ----> weighted LSE
             bb=1d0/(b(i)*b(i))
-            do 810 l=0,2*p
- 810           w(l,4)=w(l,1)
+            do l=0,2*p
+               w(l,4)=w(l,1)
      .           -2d0*bb*(tti*tti*w(l,1)-2d0*tti*w(l+1,1)+w(l+2,1))
      .           +bb*bb*(tti*tti*tti*tti*w(l,1)-4d0*tti*tti*tti*w(l+1,1)
-     .           +6d0*tti*tti*w(l+2,1)-4d0*tti*w(l+3,1)+w(l+4,1))
+     .              +6d0*tti*tti*w(l+2,1)-4d0*tti*w(l+3,1)+w(l+4,1))
+            end do
          else
 c     ----> unweighted LSE
-            do 860 l=0,2*p
- 860           w(l,4)=w(l,1)
+            do l=0,2*p
+               w(l,4)=w(l,1)
+            end do
 c     - variance (sigma = 1)
 c     - var = u'* (X'W X)**-1 X'W**2 X (X'W X)**-1 * u
          endif
